@@ -1,1 +1,550 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Security Consultant | Cybersecurity Expert</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #121829;
+            --bg-card: #1a2332;
+            --text-primary: #e8edf4;
+            --text-secondary: #a0aec0;
+            --accent-cyber: #00ff88;
+            --accent-alert: #ff3366;
+            --accent-warn: #ffaa00;
+            --border-subtle: #2d3748;
+            --glow-cyber: rgba(0, 255, 136, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Background Grid Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(var(--border-subtle) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.3;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Animated Gradient Orb */
+        .orb {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--glow-cyber), transparent 70%);
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: float 20s infinite ease-in-out;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .orb-1 { top: -300px; right: -200px; animation-delay: 0s; }
+        .orb-2 { bottom: -300px; left: -200px; animation-delay: 10s; }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(100px, -100px) scale(1.1); }
+            66% { transform: translate(-50px, 100px) scale(0.9); }
+        }
+
+        /* Header */
+        header {
+            padding: 2rem 5%;
+            border-bottom: 1px solid var(--border-subtle);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 14, 26, 0.8);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent-cyber);
+            text-shadow: 0 0 20px var(--glow-cyber);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-cyber);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyber);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 8rem 5% 6rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-cyber));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--accent-cyber);
+            color: var(--bg-primary);
+            box-shadow: 0 0 30px var(--glow-cyber);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 40px var(--glow-cyber);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-subtle);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-cyber);
+            color: var(--accent-cyber);
+            transform: translateY(-2px);
+        }
+
+        /* Terminal Display */
+        .terminal {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .terminal-header {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .terminal-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-btn.red { background: var(--accent-alert); }
+        .terminal-btn.yellow { background: var(--accent-warn); }
+        .terminal-btn.green { background: var(--accent-cyber); }
+
+        .terminal-body {
+            color: var(--accent-cyber);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .terminal-body .prompt {
+            color: var(--accent-warn);
+        }
+
+        .terminal-body .comment {
+            color: var(--text-secondary);
+        }
+
+        /* Expertise Section */
+        .expertise {
+            max-width: 1400px;
+            margin: 6rem auto;
+            padding: 0 5%;
+        }
+
+        .section-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .expertise-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-cyber), var(--accent-alert));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyber);
+            box-shadow: 0 10px 40px var(--glow-cyber);
+        }
+
+        .expertise-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .expertise-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-cyber);
+        }
+
+        .expertise-card ul {
+            list-style: none;
+            color: var(--text-secondary);
+        }
+
+        .expertise-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .expertise-card li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyber);
+        }
+
+        /* Contact Section */
+        .contact {
+            max-width: 1400px;
+            margin: 6rem auto;
+            padding: 4rem 5%;
+            text-align: center;
+            background: var(--bg-card);
+            border-radius: 20px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .contact h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            color: var(--accent-cyber);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-subtle);
+            margin-top: 6rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 4rem 5%;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .expertise-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <header>
+        <nav>
+            <div class="logo">SEC://</div>
+            <ul class="nav-links">
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>IT Security<br>Consultant</h1>
+            <div class="subtitle">Cybersecurity | Cloud Security | Network Defense</div>
+            <p>Specializing in pre-sales engineering, network security, and comprehensive cybersecurity solutions. Protecting infrastructure through expert consultation and strategic security implementation.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                <a href="#expertise" class="btn btn-secondary">View Expertise</a>
+            </div>
+        </div>
+
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-btn red"></div>
+                <div class="terminal-btn yellow"></div>
+                <div class="terminal-btn green"></div>
+            </div>
+            <div class="terminal-body">
+                <div><span class="prompt">$</span> security-scan --status</div>
+                <div><span class="comment"># Initializing security assessment...</span></div>
+                <div>✓ Network perimeter: SECURE</div>
+                <div>✓ Cloud infrastructure: HARDENED</div>
+                <div>✓ Threat detection: ACTIVE</div>
+                <div>✓ Compliance status: VERIFIED</div>
+                <div><span class="comment"># All systems protected</span></div>
+                <div><span class="prompt">$</span> <span class="cursor">_</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="expertise" id="expertise">
+        <h2 class="section-title">Core Expertise</h2>
+        <div class="expertise-grid">
+            <div class="expertise-card">
+                <h3>IT Presale & Consulting</h3>
+                <ul>
+                    <li>Technical solution architecture</li>
+                    <li>Client requirement analysis</li>
+                    <li>Security framework design</li>
+                    <li>Cost-benefit optimization</li>
+                    <li>Implementation roadmaps</li>
+                </ul>
+            </div>
+
+            <div class="expertise-card">
+                <h3>Network Security</h3>
+                <ul>
+                    <li>Firewall configuration & management</li>
+                    <li>Network segmentation strategy</li>
+                    <li>Intrusion detection/prevention</li>
+                    <li>VPN & secure remote access</li>
+                    <li>Traffic analysis & monitoring</li>
+                </ul>
+            </div>
+
+            <div class="expertise-card">
+                <h3>Cybersecurity</h3>
+                <ul>
+                    <li>Vulnerability assessments</li>
+                    <li>Penetration testing</li>
+                    <li>Security audits & compliance</li>
+                    <li>Incident response planning</li>
+                    <li>Security awareness training</li>
+                </ul>
+            </div>
+
+            <div class="expertise-card">
+                <h3>Cloud Security</h3>
+                <ul>
+                    <li>Cloud infrastructure protection</li>
+                    <li>AWS/Azure/GCP security</li>
+                    <li>Identity & access management</li>
+                    <li>Data encryption & privacy</li>
+                    <li>Cloud compliance frameworks</li>
+                </ul>
+            </div>
+
+            <div class="expertise-card">
+                <h3>Ethical Hacking</h3>
+                <ul>
+                    <li>Security testing methodologies</li>
+                    <li>Exploitation & remediation</li>
+                    <li>Web application security</li>
+                    <li>Red team operations</li>
+                    <li>Security research & POCs</li>
+                </ul>
+            </div>
+
+            <div class="expertise-card">
+                <h3>IT Infrastructure</h3>
+                <ul>
+                    <li>Enterprise architecture design</li>
+                    <li>System hardening & patching</li>
+                    <li>Backup & disaster recovery</li>
+                    <li>Performance optimization</li>
+                    <li>Technology stack evaluation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Let's Secure Your Infrastructure</h2>
+        <p>Ready to discuss your cybersecurity needs? Get in touch for a consultation.</p>
+        <a href="mailto:your.email@example.com" class="btn btn-primary">Contact Me</a>
+        
+        <div class="contact-info">
+            <a href="mailto:your.email@example.com" class="contact-item">✉ your.email@example.com</a>
+            <a href="https://linkedin.com/in/yourprofile" class="contact-item">💼 LinkedIn</a>
+            <a href="https://github.com/yourusername" class="contact-item">💻 GitHub</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 IT Security Consultant. All rights reserved.</p>
+    </footer>
+</body>
+</html>
